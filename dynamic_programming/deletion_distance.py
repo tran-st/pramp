@@ -37,8 +37,11 @@ def deletion_distance(str1, str2):
   
 print(deletion_distance('dinitrophenylhydrazine', 'dimethylhydrazine'))
 
-#  '' h e a t
-# ''0 1 2 3 4
+#  '' h e a t         ''     delete i
+# ''0 1 2 3 4      delete j  position 
 # h 1 0 1 2 3
 # i 2 1 2 3 4
 # t 3 2 3 4 3
+
+# bisexual
+# blx

@@ -17,23 +17,23 @@ def shortest_cell_path(grid, start_row, start_column, target_row, target_column)
     steps = 0
 
     while queue:
-        pop_count = len(queue)
+        # pop_count = len(queue)
 
         # e2.
-        for _ in range(pop_count):
-            row, column = queue.popleft()
+        # for _ in range(pop_count):
+        row, column = queue.popleft()
 
-            # c.
-            if row == target_row and column == target_column:
-                return steps
-            else:
-                for x, y in directions: # e.
-                    new_row = row + x
-                    new_column = column + y
+        # c.
+        if row == target_row and column == target_column:
+            return steps
+        else:
+            for x, y in directions: # e.
+                new_row = row + x
+                new_column = column + y
 
-                    if (0 <= new_row < row_length and 0 <= new_column < column_length and (new_row, new_column) not in visited and grid[new_row][new_column] != 0):
-                        queue.append([new_row, new_column])
-                        visited.add((new_row, new_column)) # d.
+                if (new_row in range(row_length) and new_column in range(column_length) and (new_row, new_column) not in visited and grid[new_row][new_column] == 1):
+                    queue.append([new_row, new_column])
+                    visited.add((new_row, new_column)) # d.
 
         # f.
         steps += 1
@@ -55,9 +55,12 @@ grid = [
     [1,1,1,1]
 ]
 
-start_row = 0
-start_column = 0
-target_row = 2
-target_column = 0
+grid = [[1,1,1],
+        [0,0,0],
+        [0,0,0]]
+sr = 0
+sc = 1
+tr = 0
+tc = 0
 
-print(shortest_cell_path(grid, start_row, start_column, target_row, target_column))
+print(shortest_cell_path(grid, sr, sc, tr, tc))
